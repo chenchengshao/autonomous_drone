@@ -1,0 +1,6 @@
+If catkin's not working, use:
+source /opt/ros/indigo/setup.bash
+then it should work
+
+after making
+source devel/setup.bash
