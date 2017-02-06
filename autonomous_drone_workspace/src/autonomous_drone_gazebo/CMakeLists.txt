@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(pixel_labeler_pkg)
+project(autonomous_drone_gazebo)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -7,6 +7,7 @@ project(pixel_labeler_pkg)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
+  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -66,7 +67,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
+#   std_msgs
 # )
 
 ################################################
@@ -100,8 +101,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES pixel_labeler_pkg
-#  CATKIN_DEPENDS roscpp rospy
+#  LIBRARIES autonomous_drone_gazebo
+#  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -117,24 +118,24 @@ include_directories(
 )
 
 ## Declare a C++ library
-# add_library(pixel_labeler_pkg
-#   src/${PROJECT_NAME}/pixel_labeler_pkg.cpp
+# add_library(autonomous_drone_gazebo
+#   src/${PROJECT_NAME}/autonomous_drone_gazebo.cpp
 # )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(pixel_labeler_pkg ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(autonomous_drone_gazebo ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-# add_executable(pixel_labeler_pkg_node src/pixel_labeler_pkg_node.cpp)
+# add_executable(autonomous_drone_gazebo_node src/autonomous_drone_gazebo_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(pixel_labeler_pkg_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(autonomous_drone_gazebo_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(pixel_labeler_pkg_node
+# target_link_libraries(autonomous_drone_gazebo_node
 #   ${catkin_LIBRARIES}
 # )
 
@@ -153,7 +154,7 @@ include_directories(
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS pixel_labeler_pkg pixel_labeler_pkg_node
+# install(TARGETS autonomous_drone_gazebo autonomous_drone_gazebo_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -178,7 +179,7 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_pixel_labeler_pkg.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_autonomous_drone_gazebo.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
