@@ -39,4 +39,6 @@ LABEL com.nvidia.volumes.needed="nvidia_driver"
 ENV PATH /usr/local/nvidia/bin:${PATH}
 ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
 
+# ==================== ROS Catkin Setup ====================================
+RUN /bin/bash -c "source /opt/ros/indigo/setup.bash"
 EXPOSE 80
