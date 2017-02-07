@@ -41,4 +41,10 @@ ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_P
 
 # ==================== ROS Catkin Setup ====================================
 RUN /bin/bash -c "source /opt/ros/indigo/setup.bash"
+
+# ==================== Essential Dev Tools =================================
+RUN apt-get install vim -y
+RUN apt-get install tree -y
+RUN apt-get install git -y
+
 EXPOSE 80
