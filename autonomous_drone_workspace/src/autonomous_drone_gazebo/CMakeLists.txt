@@ -13,7 +13,7 @@ find_package(gazebo REQUIRED)
 link_directories(${GAZEBO_LIBRARY_DIRS})
 include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS})
 
-add_library(${PROJECT_NAME} plugins/system_gui.cc)
+add_library(${PROJECT_NAME} plugins/PixelLabeler.cc)
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
 catkin_package(
