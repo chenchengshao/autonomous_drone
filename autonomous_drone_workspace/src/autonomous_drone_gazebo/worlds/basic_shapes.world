@@ -226,10 +226,10 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name='default'>
-      <sim_time>19 163000000</sim_time>
-      <real_time>19 204983248</real_time>
-      <wall_time>1486421064 720583638</wall_time>
-      <iterations>19163</iterations>
+      <sim_time>147 398000000</sim_time>
+      <real_time>129 858369780</real_time>
+      <wall_time>1486523970 87155994</wall_time>
+      <iterations>128235</iterations>
       <model name='box'>
         <pose frame=''>-0 0 0.5 0 -0 0</pose>
         <link name='link'>
@@ -240,12 +240,12 @@
         </link>
       </model>
       <model name='cylinder'>
-        <pose frame=''>4.7e-05 -1.5 0.499999 0 1.57079 0</pose>
+        <pose frame=''>5e-05 -1.5 0.5 3.14159 1.57079 3.14159</pose>
         <link name='link'>
-          <pose frame=''>4.7e-05 -1.5 0.499999 0 1.57079 0</pose>
+          <pose frame=''>5e-05 -1.5 0.5 3.14159 1.57079 3.14159</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-1.17601 0 -3.91995 3.14159 -0.789578 3.14159</acceleration>
-          <wrench>-1.17601 0 -3.91995 0 -0 0</wrench>
+          <acceleration>-0 0 0 0 -0 0</acceleration>
+          <wrench>-0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='ground_plane'>
@@ -255,6 +255,15 @@
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='quadrotor'>
+        <pose frame=''>3.00001 -2.55753 0 -2e-06 -2e-06 0.002043</pose>
+        <link name='link'>
+          <pose frame=''>3.00001 -2.55753 0.182466 -2e-06 -2e-06 0.002043</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>8.39884 -4.82255 8.07342 -2.20417 0.828527 -0.132659</acceleration>
+          <wrench>11.0529 -6.34648 10.6246 0 -0 0</wrench>
         </link>
       </model>
       <model name='sphere'>
@@ -269,10 +278,54 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>5 -5 2 0 0.275643 2.35619</pose>
+        <pose frame=''>5.45886 -4.74537 1.48943 0 0.275643 2.35619</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+    <model name='quadrotor'>
+      <link name='link'>
+        <pose frame=''>0 0 0.182466 0 -0 0</pose>
+        <inertial>
+          <mass>1.316</mass>
+          <inertia>
+            <ixx>0.0128</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0128</iyy>
+            <iyz>0</iyz>
+            <izz>0.0218</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://quadrotor/meshes/quadrotor_base.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://quadrotor/meshes/quadrotor_base.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <pose frame=''>3 -2.55752 0 0 -0 0</pose>
+    </model>
   </world>
 </sdf>

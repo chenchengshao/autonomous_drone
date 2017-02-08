@@ -7,3 +7,9 @@ source devel/setup.bash
 
 to run
 roslaunch autonomous_drone_gazebo basic_shapes.launch
+
+
+to run script
+killall gzserver
+gzserver &
+gzclient -g libautonomous_drone_gazebo.so
