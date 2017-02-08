@@ -20,7 +20,7 @@ namespace gazebo
    * Description : A Gazebo system plugin that outputs an vector or entity IDs
    *               for each pixel on a given camera
    * ------------------------------------------------------------------------ */
-  class SystemGUI : public SystemPlugin
+  class PixelLabeler : public SystemPlugin
   {
 
   // ========================= VARIABLE DECLARATIONS ===========================
@@ -31,12 +31,12 @@ namespace gazebo
   // ========================= FUNCTION DECLARATIONS ===========================
 
   /*----------------------------------------------------------------------------
-   * Function name : ~SystemGUI (Destructor)
+   * Function name : ~PixelLabeler (Destructor)
    * Purpose : To release all memory and exit cleanly. Release ownership of
    *           the userCamera sharedPtr and clears the vector of OGRE/GAZEBO
    *           rendering event connections.
    * ------------------------------------------------------------------------ */
-  public: virtual ~SystemGUI()
+  public: virtual ~PixelLabeler()
   {
     this->connections.clear();
     if (this->userCam)
@@ -54,7 +54,7 @@ namespace gazebo
   {
     this->connections.push_back(
       event::Events::ConnectPreRender(
-        boost::bind(&SystemGUI::Update, this)));
+        boost::bind(&PixelLabeler::Update, this)));
   }
 
   // Init: Called once after Load. Trivial for our purposes
@@ -136,5 +136,5 @@ namespace gazebo
     };
 
   // Register this plugin with Gazebo
-  GZ_REGISTER_SYSTEM_PLUGIN(SystemGUI)
+  GZ_REGISTER_SYSTEM_PLUGIN(PixelLabeler)
 }
